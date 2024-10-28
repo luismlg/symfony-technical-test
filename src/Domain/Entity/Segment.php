@@ -242,18 +242,18 @@ class Segment
         ];
     }   
 
-    public function __toString(): string
+    public function toArrayWithKeys(): array
     {
-        return sprintf(
-            '%s (%s) -> %s (%s) [%s - %s] %s %s',
-            $this->originName,
-            $this->originCode,
-            $this->destinationName,
-            $this->destinationCode,
-            $this->start->format('Y-m-d H:i:s'),
-            $this->end->format('Y-m-d H:i:s'),
-            $this->companyName,
-            $this->transportNumber
-        );
-    }
+        return [
+            'originCode' => $this->originCode,
+            'originName' => $this->originName,
+            'destinationCode' => $this->destinationCode,
+            'destinationName' => $this->destinationName,
+            'start' => $this->start->format('Y-m-d H:i:s'),
+            'end' => $this->end->format('Y-m-d H:i:s'),
+            'transportNumber' => $this->transportNumber,
+            'companyCode' => $this->companyCode,
+            'companyName' => $this->companyName,
+        ];
+    }   
 }
